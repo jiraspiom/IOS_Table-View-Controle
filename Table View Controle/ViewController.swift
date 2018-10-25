@@ -28,6 +28,16 @@ class ViewController: UITableViewController {
         //será retornado o tamanho de retitos no array
         return dados.count
     }
-
+    
+    //metodo para montar a celula
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let celulaReuso = "celulaReuso"
+        
+        let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath)
+        celula.textLabel?.text = dados[indexPath.row]
+        return celula
+        
+    }
 }
 
